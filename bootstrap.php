@@ -1,4 +1,12 @@
 <?php
 
+$menu = \Menu_Admin::instance('indigo');
 
-var_dump(\Wisecrack\Model_Wisecrack::forge()); exit;
+$menu->add(array(
+	array(
+		'name' => 'Wisecrack',
+		'url' => 'admin/wisecrack',
+		'icon' => 'fa fa-quote-right',
+		'sort' => 99,
+	),
+));
