@@ -1,0 +1,31 @@
+<form action="{{ base_url() }}admin/wisecrack/{{ action }}/{{ action == 'create' ? '' : model.id }}" class="form-horizontal" method="post" role="form">
+	<div class="panel panel-{{ action == 'create' ? 'success' : 'info' }}">
+		<div class="panel-heading">
+			<div class="panel-title">{% trans 'Wisecrack details' %}</div>
+		</div>
+		<div class="panel-body">
+			<div class="form-group">
+				<label for="inputTitle" class="col-sm-2 control-label">{% trans 'Title' %}</label>
+				<div class="col-sm-10">
+					<input name="title" type="text" value="{{ model.title }}" class="form-control" id="inputTitle" placeholder="{% trans 'Title' %}" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputBy" class="col-sm-2 control-label">{% trans 'By' %}</label>
+				<div class="col-sm-10">
+					<input name="by" type="text" value="{{ model.by }}" class="form-control" id="inputBy" placeholder="{% trans 'By' %}" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputBody" class="col-sm-2 control-label">{% trans 'Body' %}</label>
+				<div class="col-sm-10">
+					<textarea name="body" value="{{ model.body }}" class="form-control" id="inputBody" style="max-width: 100%; min-width: 50%; min-height: 70px;" placeholder="{% trans 'Body' %}" required></textarea>
+				</div>
+			</div>
+		</div><!-- /.panel-body -->
+		<div class="panel-footer">
+			<a href="{{ base_url() }}admin/wisecrack/" class="hidden-print btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> {% trans 'Back' %}</a>
+			<button type="submit" class="btn btn-success" id="form-button-save">{% trans 'Save' %}</button>
+		</div>
+	</div><!-- /.panel -->
+</form>

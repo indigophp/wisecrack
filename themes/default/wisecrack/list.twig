@@ -1,0 +1,45 @@
+{% extends 'admin/layout.twig' %}
+
+{% block title %}{% trans 'Wisecracks' %}{% endblock %}
+
+{% block content %}
+<h2>{% trans 'Wisecracks' %} <small>{% trans 'List of funny wisecracks' %}</small></h2>
+
+{% if auth_has_access('wisecrack.create') %}
+	<p>
+		<a href="{{ base_url() }}admin/wisecrack/create" class="hidden-print btn btn-success"><span class="glyphicon glyphicon-plus"></span> {% trans 'Create new wisecrack' %}</a>
+	</p>
+{% endif %}
+
+<div class="panel panel-default">
+	<table class="datatables table table-striped table-hover" data-source="{{ base_url() }}admin/wisecrack/ajax/list.json">
+		<thead>
+			{% block _filter %}
+				<tr class="filter">
+					<td data-filter="text"><input type="text" class="form-control"></td>
+					<td data-filter="text"><input type="text" class="form-control"></td>
+					<td data-filter="date"><input type="text" class="form-control"></td>
+					<td data-filter="none" class="hidden-print no-sort"><button type="reset" class="btn btn-default">{% trans 'Reset filters' %}</button></td>
+				</tr>
+			{% endblock %}
+			<tr>
+				<th>{% trans 'Title' %}</th>
+				<th>{% trans 'By' %}</th>
+				<th>{% trans 'Date' %}</th>
+				<th class="hidden-print" style="width: 140px;"></th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+		<tfoot>
+			{{ block('_filter') }}
+		</tfoot>
+	</table>
+</div><!-- /.panel -->
+
+{% if auth_has_access('wisecrack.create') %}
+	<p>
+		<a href="{{ base_url() }}admin/wisecrack/create" class="hidden-print btn btn-success"><span class="glyphicon glyphicon-plus"></span> {% trans 'Create new wisecrack' %}</a>
+	</p>
+{% endif %}
+
+{% endblock %}

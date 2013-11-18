@@ -1,0 +1,23 @@
+{
+	"name": "indigo-soft/indigo-wisecrack",
+	"type": "fuel-module",
+	"description": "Wisecrack storage for Indigo Admin",
+	"keywords": ["wisecrack"],
+	"homepage": "http://indigophp.com",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Márk Sági-Kazár",
+			"email": "mark.sagikazar@gmail.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	},
+	"extra": {
+		"installer-name": "wisecrack"
+	},
+	"autoload": {
+		"files": ["bootstrap.php"]
+	}
+}
