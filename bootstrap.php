@@ -7,6 +7,6 @@ $menu->add(array(
 		'name' => 'Wisecrack',
 		'url' => 'admin/wisecrack',
 		'icon' => 'fa fa-quote-right',
-		'sort' => 99,
+		'sort' => 99.1,
 	),
 ));
