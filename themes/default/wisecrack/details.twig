@@ -11,8 +11,6 @@
 	<small>{{ model.by }}</small>
 </blockquote>
 
-<a href="{{ base_url() }}admin/wisecrack/" class="hidden-print btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> {% trans 'Back' %}</a>
-
 {% if auth_has_access('wisecrack.edit') %}
 		<a href="{{ base_url() }}admin/wisecrack/edit/{{ model.id }}" class="hidden-print btn btn-success"><span class="glyphicon glyphicon-edit"></span> {% trans 'Edit' %}</a>
 {% endif %}
@@ -20,4 +18,8 @@
 	<a href="{{ base_url() }}admin/wisecrack/delete/{{ model.id }}" class="hidden-print btn btn-danger"><span class="glyphicon glyphicon-remove"></span> {% trans 'Delete' %}</a>
 {% endif %}
 
+{% endblock %}
+
+{% block documentready %}
+	IndigoAdmin.addFastButton('{% trans 'Back' %}', 'glyphicon glyphicon-arrow-left', '{{ base_url() }}admin/wisecrack/');
 {% endblock %}
