@@ -1,4 +1,4 @@
-{% extends 'admin/layout.twig' %}
+{% extends 'admin/skeleton/create.twig' %}
 
 {% block title %}{% trans 'New wisecrack' %}{% endblock %}
 
@@ -6,11 +6,6 @@
 
 <h2>{% trans 'New wisecrack' %} <small>{% trans 'Paste a new wisecrack' %}</small></h2>
 
-{% include 'form.twig' with { 'action': 'create' } %}
+{% include 'form.twig' %}
 
-{% endblock %}
-
-{% block documentready %}
-	IndigoAdmin.addProxyButton('{% trans 'Save' %}', 'glyphicon glyphicon-save', '#form-button-save');
-	IndigoAdmin.addFastButton('{% trans 'Back' %}', 'glyphicon glyphicon-arrow-left', '{{ base_url() }}admin/wisecrack/');
 {% endblock %}

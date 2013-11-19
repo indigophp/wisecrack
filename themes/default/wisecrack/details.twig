@@ -1,4 +1,4 @@
-{% extends 'admin/layout.twig' %}
+{% extends 'admin/skeleton/details.twig' %}
 
 {% block title %}{{ model.title }}{% endblock %}
 
@@ -18,8 +18,4 @@
 	<a href="{{ base_url() }}admin/wisecrack/delete/{{ model.id }}" class="hidden-print btn btn-danger"><span class="glyphicon glyphicon-remove"></span> {% trans 'Delete' %}</a>
 {% endif %}
 
-{% endblock %}
-
-{% block documentready %}
-	IndigoAdmin.addFastButton('{% trans 'Back' %}', 'glyphicon glyphicon-arrow-left', '{{ base_url() }}admin/wisecrack/');
 {% endblock %}
