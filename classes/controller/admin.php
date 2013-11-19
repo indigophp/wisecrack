@@ -97,7 +97,16 @@ class Controller_Admin extends \Admin\Controller_Admin_Skeleton
 	{
 		return array(
 			'create' => array(
-				'access' => gettext('You are not authorized to paste wisecrack.')
+				'access' => gettext('You are not authorized to paste wisecracks.')
+			),
+			'details' => array(
+				'access' => gettext('You are not authorized to view wisecracks.')
+			),
+			'edit' => array(
+				'access' => gettext('You are not authorized to edit wisecracks.')
+			),
+			'delete' => array(
+				'access' => gettext('You are not authorized to delete wisecracks.')
 			)
 		);
 	}
