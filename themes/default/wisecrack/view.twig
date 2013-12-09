@@ -1,4 +1,4 @@
-{% extends 'admin/skeleton/details.twig' %}
+{% extends 'admin/layout.twig' %}
 
 {% block title %}{{ model.title }}{% endblock %}
 
@@ -7,7 +7,7 @@
 <h2>{{ model.title }} <small>{{ model.by }}</small></h2>
 
 <blockquote>
-	<p>{{ model.body }}</p>
+	<p>{{ model.body|nl2br }}</p>
 	<small>{{ model.by }}</small>
 </blockquote>
 
@@ -18,4 +18,8 @@
 	<a href="{{ base_url() }}admin/wisecrack/delete/{{ model.id }}" class="hidden-print btn btn-danger"><span class="glyphicon glyphicon-remove"></span> {% trans 'Delete' %}</a>
 {% endif %}
 
+{% endblock %}
+
+{% block documentready %}
+	IndigoAdmin.addFastButton('{% trans 'Back' %}', 'glyphicon glyphicon-arrow-left', '{{ base_url() }}admin/{{ request().module }}');
 {% endblock %}

@@ -70,7 +70,7 @@ class Data
 
 		foreach ($model as $wisecrack)
 		{
-			\Wisecrack\Model_Wisecrack::forge()->from_array($wisecrack)->save();
+			\Wisecrack\Model_Wisecrack::forge()->from_array($wisecrack)->set('import', true)->save();
 		}
 	}
 
