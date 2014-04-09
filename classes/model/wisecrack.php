@@ -6,6 +6,17 @@ class Model_Wisecrack extends \Orm\Model
 {
 	use \Admin\Model_Skeleton;
 
+	protected static $_belongs_to = array(
+		'creator' => array(
+			'model_to' => 'Model\\Auth_User',
+			'key_from' => 'created_by',
+		),
+		'updater' => array(
+			'model_to' => 'Model\\Auth_User',
+			'key_from' => 'updated_by',
+		),
+	);
+
 	protected static $_properties = array(
 		'id' => array(
 			'data_type' => 'int',
@@ -30,6 +41,7 @@ class Model_Wisecrack extends \Orm\Model
 		),
 		'created_at' => array(
 			'data_type' => 'time_unix',
+			'data_format' => 'mysql_date',
 			'form' => array(
 				'type' => false,
 			),
@@ -41,21 +53,42 @@ class Model_Wisecrack extends \Orm\Model
 				'type' => false,
 			),
 		),
+		'created_by' => array(
+			'data_type' => 'int',
+			'form' => array('type' => false),
+		),
+		'updated_by' => array(
+			'data_type' => 'int',
+			'form' => array('type' => false),
+		),
+		'creator.fullname'  => array(
+			'eav' => 'metadata',
+			'list' => array('type' => 'text'),
+		),
+		'updater.fullname'  => array(
+			'eav' => 'metadata',
+		),
 	);
 
 	protected static $_observers = array(
-		'Orm\Observer_CreatedAt' => array(
+		'Orm\\Observer_CreatedAt' => array(
 			'events' => array('before_insert'),
 			'mysql_timestamp' => false,
 		),
-		'Orm\Observer_UpdatedAt' => array(
+		'Orm\\Observer_UpdatedAt' => array(
 			'events' => array('before_update'),
 			'mysql_timestamp' => false,
+		),
+		'Orm\\Observer_CreatedBy' => array(
+			'events' => array('before_insert'),
+		),
+		'Orm\\Observer_UpdatedBy' => array(
+			'events' => array('before_update'),
 		),
 		'Orm\\Observer_Validation' => array(
 			'events' => array('before_save')
 		),
-		'Orm\\Observer_Typing',
+		'Indigo\\Orm\\Observer_Typing',
 	);
 
 	protected static $_table_name = 'wisecracks';
@@ -86,6 +119,14 @@ class Model_Wisecrack extends \Orm\Model
 			'updated_at' => array(
 				'label' => gettext('Updated At'),
 			),
+			'created_by' => array(
+				'label' => gettext('Created By'),
+			),
+			'updated_by' => array(
+				'label' => gettext('Updated By'),
+			),
+			'creator.fullname'  => array('label' => gettext('Created By')),
+			'updater.fullname'  => array('label' => gettext('Updated By')),
 		));
 	}
 

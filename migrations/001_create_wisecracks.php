@@ -13,6 +13,8 @@ class Create_wisecracks
 			'body'       => array('type' => 'text'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
+			'created_by' => array('constraint' => 11, 'type' => 'int', 'null' => true),
+			'updated_by' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 		), array('id'));
 	}
 

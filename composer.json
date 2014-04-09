@@ -1,9 +1,9 @@
 {
-	"name": "indigo/wisecrack",
+	"name": "indigophp/indigo-wisecrack",
 	"type": "fuel-module",
 	"description": "Wisecrack modul for Indigo",
 	"keywords": ["wisecrack"],
-	"homepage": "http://indigophp.com",
+	"homepage": "https://indigophp.com",
 	"license": "MIT",
 	"authors": [
 		{
@@ -12,7 +12,8 @@
 		}
 	],
 	"require": {
-		"composer/installers": "~1.0"
+		"composer/installers": "~1.0",
+		"indigophp/base": "dev-develop"
 	},
 	"extra": {
 		"installer-name": "wisecrack"
